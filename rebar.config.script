@@ -10,10 +10,10 @@ Patch = fun (Key, Value, Config) ->
 application:load(syntax_tools),
 NewCfg = case application:get_key(syntax_tools, vsn) of
     {ok, Vsn} when "1.7" > Vsn ->
-        Deps = [{merl, ".*", {git, "https://github.com/Licenser/merl.git", {branch, "master"}}},
+        Deps = [{merl, ".*", {git, "https://github.com/Plexxi/merl.git", {tag, "plexxi_4.0.0-1"}}},
                 {erlydtl, "",
-                         {git, "https://github.com/erlydtl/erlydtl.git",
-                          {branch, "master"}}}],
+                         {git, "https://github.com/Plexxi/erlydtl.git",
+                          {tag, "plexxi_4.0.0-1"}}}],
 
         Overrides =
           [{override, erlydtl,
@@ -35,8 +35,8 @@ NewCfg = case application:get_key(syntax_tools, vsn) of
          {erl_opts, [{d, 'MERL_DEP'}]}];
     _ ->
         [{deps, [{erlydtl, "",
-                        {git, "https://github.com/erlydtl/erlydtl.git",
-                         {branch, "master"}}}]}]
+                        {git, "https://github.com/Plexxi/erlydtl.git",
+                         {tag, "plexxi_4.0.0-1"}}}]}]
 end,
 
 lists:foldl(
